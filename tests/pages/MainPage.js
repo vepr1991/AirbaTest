@@ -17,6 +17,7 @@ exports.MainPage = class MainPage {
         this.NotificationsButton = page.getByText('Уведомления');
 
     }
+    //проверки
     async CheckMainPage() {
         await expect(this.CatalogButton).toBeVisible()
         await expect(this.CartButton).toBeVisible()
