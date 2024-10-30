@@ -15,22 +15,25 @@ exports.MainPage = class MainPage {
         this.Cart = page.locator('[href="/cart"]');
         this.Profile = page.getByText('Войти');
         this.Notifications = page.getByText('Уведомления');
-        this.Footer = page.locator('//html/body/div[1]/div[2]/div[3]/div[2]/div')
+        this.Footer = page.locator('//html/body/div[1]/div[2]/div[3]/div[2]/div');
+        this.Brands = page.getByText('Топ бренды')
 
     }
     async CheckMainPage() {
-        await expect(this.Catalog).toBeVisible()
-        await expect(this.Cart).toBeVisible()
-        await expect(this.Wishlist).toBeVisible()
-        await expect(this.Profile).toBeVisible()
-        await expect(this.Notifications).toBeVisible()
-        await expect(this.ChangeCity).toHaveText('Алматы')
-
+        await Promise.all([
+            expect(this.Catalog).toBeVisible(),
+            expect(this.Cart).toBeVisible(),
+            expect(this.Wishlist).toBeVisible(),
+            expect(this.Profile).toBeVisible(),
+            expect(this.Notifications).toBeVisible(),
+            expect(this.ChangeCity).toHaveText('Алматы'),
+            expect(this.Brands).toHaveText('Топ бренды')
+        ]);
     }
 
     async CheckSearch(product) {
         await this.page.goto('/')
         await this.Search.fill(product)
-        await this.page.keyboard.press('Enter', {delay:2000})
+        await this.page.keyboard.press('Enter')
     }
 }
