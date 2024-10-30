@@ -1,4 +1,4 @@
-const { expect, test} = require('@playwright/test');
+const { expect} = require('@playwright/test');
 
 exports.MainPage = class MainPage {
     /**
@@ -8,22 +8,29 @@ exports.MainPage = class MainPage {
     constructor(page) {
 
         this.page = page;
-        this.CatalogButton = page.getByText('Каталог');
-        this.SearchInput = page.locator('[name="search_query"]');
+        this.Catalog = page.getByText('Каталог');
+        this.Search = page.locator('[name="search_query"]');
         this.ChangeCity = page.getByText('Алматы');
-        this.WishlistButton = page.locator('[href="/wishlist"]');
-        this.CartButton = page.locator('[href="/cart"]');
-        this.ProfileButton = page.getByText('Войти');
-        this.NotificationsButton = page.getByText('Уведомления');
+        this.Wishlist = page.locator('[href="/wishlist"]');
+        this.Cart = page.locator('[href="/cart"]');
+        this.Profile = page.getByText('Войти');
+        this.Notifications = page.getByText('Уведомления');
+        this.Footer = page.locator('//html/body/div[1]/div[2]/div[3]/div[2]/div')
 
     }
     async CheckMainPage() {
-        await expect(this.CatalogButton).toBeVisible()
-        await expect(this.CartButton).toBeVisible()
-        await expect(this.WishlistButton).toBeVisible()
-        await expect(this.ProfileButton).toBeVisible()
-        await expect(this.NotificationsButton).toBeVisible()
+        await expect(this.Catalog).toBeVisible()
+        await expect(this.Cart).toBeVisible()
+        await expect(this.Wishlist).toBeVisible()
+        await expect(this.Profile).toBeVisible()
+        await expect(this.Notifications).toBeVisible()
+        await expect(this.ChangeCity).toHaveText('Алматы')
 
+    }
 
+    async CheckSearch(product) {
+        await this.page.goto('/')
+        await this.Search.fill(product)
+        await this.page.keyboard.press('Enter', {delay:2000})
     }
 }
