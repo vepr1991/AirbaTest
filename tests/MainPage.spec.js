@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+
 const { MainPage } = require('./pages/MainPage');
 
 test('Проверка элементов главной', async ({ page }) => {

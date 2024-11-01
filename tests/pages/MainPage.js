@@ -15,7 +15,6 @@ exports.MainPage = class MainPage {
         this.Cart = page.locator('[href="/cart"]');
         this.Profile = page.getByText('Войти');
         this.Notifications = page.getByText('Уведомления');
-        this.Footer = page.locator('//html/body/div[1]/div[2]/div[3]/div[2]/div');
         this.Brands = page.getByText('Топ бренды')
 
     }
