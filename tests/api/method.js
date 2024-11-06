@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 
 export const requestLogin = async (request, data) => {
-    // Используем `request` для отправки POST-запроса
+
     const response = await request.post('https://api.airba.kz/sso/api/v1/auth/signin/phone', {
         data: JSON.stringify(data),
         headers: {
