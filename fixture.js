@@ -11,7 +11,6 @@ export const test = baseTest.extend({
     addAuthToken: async ({ context, DefaultUser }, use) => {
         const token = await requestLogin(context.request, DefaultUser);
 
-        // Добавление токена в куки
         await context.addCookies([{
             name: 'auth_token',
             value: token,
@@ -19,7 +18,7 @@ export const test = baseTest.extend({
             path: '/',
         }]);
 
-        await use(token); // Передаем токен в тест
+        await use(token);
     }
 });
 

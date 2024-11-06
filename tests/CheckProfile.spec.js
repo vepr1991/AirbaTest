@@ -8,8 +8,6 @@ test.beforeEach(async ({ context, addAuthToken }) => {
 
 test('Проверка профиля пользователя', async ({ page }) => {
     await page.goto('/profile');
-
-    // Проверка на наличие текста "Профиль"
     await expect(page.getByText('Профиль')).toBeVisible();
     await expect(page.getByText('Личные данные')).toBeVisible()
     await expect(page.getByText('Мои адреса')).toBeVisible()
