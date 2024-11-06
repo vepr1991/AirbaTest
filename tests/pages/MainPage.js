@@ -13,9 +13,10 @@ exports.MainPage = class MainPage {
         this.ChangeCity = page.getByText('Алматы');
         this.Wishlist = page.locator('[href="/wishlist"]');
         this.Cart = page.locator('[href="/cart"]');
-        this.Profile = page.getByText('Войти');
+        this.Signin = page.getByText('Войти');
         this.Notifications = page.getByText('Уведомления');
         this.Brands = page.getByText('Топ бренды')
+        this.Profile = page.getByText('Профиль')
 
     }
     async CheckMainPage() {
@@ -23,7 +24,7 @@ exports.MainPage = class MainPage {
             expect(this.Catalog).toBeVisible(),
             expect(this.Cart).toBeVisible(),
             expect(this.Wishlist).toBeVisible(),
-            expect(this.Profile).toBeVisible(),
+            expect(this.Signin).toBeVisible(),
             expect(this.Notifications).toBeVisible(),
             expect(this.ChangeCity).toHaveText('Алматы'),
             expect(this.Brands).toHaveText('Топ бренды')
