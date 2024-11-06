@@ -7,7 +7,6 @@ export const test = baseTest.extend({
         const user = { phone: "77774889937", password: "Qq123456" };
         await use(user);
     },
-
     // Добавление токена в куки перед тестами
     addAuthToken: async ({ context, DefaultUser }, use) => {
         const token = await requestLogin(context.request, DefaultUser);

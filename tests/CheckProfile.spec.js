@@ -11,4 +11,7 @@ test('Проверка профиля пользователя', async ({ page }
 
     // Проверка на наличие текста "Профиль"
     await expect(page.getByText('Профиль')).toBeVisible();
+    await expect(page.getByText('Личные данные')).toBeVisible()
+    await expect(page.getByText('Мои адреса')).toBeVisible()
+    await expect(page.getByText('Выйти')).toBeVisible()
 });

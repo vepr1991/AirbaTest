@@ -16,7 +16,6 @@ exports.MainPage = class MainPage {
         this.Signin = page.getByText('Войти');
         this.Notifications = page.getByText('Уведомления');
         this.Brands = page.getByText('Топ бренды')
-        this.Profile = page.getByText('Профиль')
 
     }
     async CheckMainPage() {
