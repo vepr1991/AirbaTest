@@ -1,7 +1,7 @@
 const { expect, test} = require('@playwright/test');
 
 exports.CatalogPage = class CatalogPage {
-
+//По локаторам заведена задача https://jira.technodom.kz/browse/AMP-726
     constructor(page) {
         this.page = page;
         this.ProductsPLP = page.locator('//html/body/div[1]/div[2]/main/div/div/div[2]/article/div')

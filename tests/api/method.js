@@ -4,10 +4,6 @@ export const requestLogin = async (request, data) => {
 
     const response = await request.post('https://api.airba.kz/sso/api/v1/auth/signin/phone', {
         data: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json',
-            'User-Agent': 'insomnia/8.6.0'
-        }
     });
 
     expect(response.ok()).toBeTruthy();
