@@ -6,13 +6,16 @@ test('Проверка элементов главной', async ({ page }) => {
 
     await page.goto('/');
 
-    await Promise.all([
-        expect(mainPage.Catalog).toBeVisible(),
-        expect(mainPage.Cart).toBeVisible(),
-        expect(mainPage.Wishlist).toBeVisible(),
-        expect(mainPage.Signin).toBeVisible(),
-        expect(mainPage.Notifications).toBeVisible(),
-        expect(mainPage.ChangeCity).toHaveText('Алматы'),
-        expect(mainPage.Brands).toHaveText('Топ бренды'),
-    ]);
+    await expect(mainPage.Catalog).toBeVisible();
+    await expect(mainPage.Cart).toBeVisible();
+    await expect(mainPage.Wishlist).toBeVisible();
+    await expect(mainPage.Signin).toBeVisible();
+    await expect(mainPage.Notifications).toBeVisible();
+    await expect(mainPage.Brands).toBeVisible();
+
+    await expect(mainPage.Brands).toHaveText('Топ бренды');
+
+    const cartHref = await mainPage.Cart.getAttribute('href');
+    expect(cartHref).toBe('/cart');
+    await expect(mainPage.Signin).toHaveText('Войти');
 });

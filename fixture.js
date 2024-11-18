@@ -19,6 +19,14 @@ export const test = baseTest.extend({
         }]);
 
         await use(token);
+    },
+    // Метод для закрытия модального окна
+    closeCityModal: async ({ page }, use) => {
+
+        const CityModalClose = page.locator('//html/body/div[2]/div/div/button');
+        await CityModalClose.waitFor({ state: 'visible' });
+        await CityModalClose.click();
+        await use();
     }
 });
 
